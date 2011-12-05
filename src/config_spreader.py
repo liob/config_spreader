@@ -18,7 +18,7 @@ try:
 except:
     globalPrefix = None
 
-if debug:
+if debug == "true" or debug == "True" or debug == "1":
     FORMAT = "%(asctime)-15s %(message)s"
     logging.basicConfig(level=logging.DEBUG, format=FORMAT)
 else:
@@ -107,7 +107,7 @@ def pushToChannel(srcChannel, dstChannel, srcChannelKey, dstChannelKey):
     # delete obsolete files/paths in target channel
     logging.debug("obsolete items: %s" % str(existingPaths))
     if len(existingPaths) > 0:
-        logging.info("deleting obsolete items: %s" % str(existingPaths))
+        logging.debug("deleting obsolete items: %s" % str(existingPaths))
         client.configchannel.deleteFiles(dstChannelKey, dstChannel, existingPaths)
         
     
