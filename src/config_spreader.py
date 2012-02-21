@@ -4,6 +4,7 @@ import sys, os
 import logging
 import ConfigParser
 import xmlrpclib
+import base64
 
 config = ConfigParser.SafeConfigParser({'here': sys.path[0]})
 try:
@@ -93,9 +94,10 @@ def pushToChannel(srcChannel, dstChannel, srcChannelKey, dstChannelKey):
             pathInfo["permissions"] = str(path["permissions_mode"])
             pathInfo["owner"] = path["owner"]
             pathInfo["group"] = path["group"]
-            pathInfo["contents"] = path["contents"]
+            pathInfo["contents"] = base64.b64encode(path["contents"])
             pathInfo["macro-start-delimiter"] = path["macro-start-delimiter"]
             pathInfo["macro-end-delimiter"] = path["macro-end-delimiter"]
+            pathInfo["contents_enc64"] = "true"
             if differ(pathInfo, existingPathInfo):
                 logging.debug("they differ. uploading new content")
                 client.configchannel.createOrUpdatePath(dstChannelKey, dstChannel, path["path"], False, pathInfo)
