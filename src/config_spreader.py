@@ -33,12 +33,8 @@ def pushToChannel(srcChannel, dstChannel, srcChannelKey, dstChannelKey):
         """ check if two dicts do differ """
         for key in dict1.keys():
             if key in dict2:
-                if key == "contents":   # dirty bugfix
-                    if not str(dict1[key]).strip() == str(dict2[key]).strip():
-                        return True
-                else:
-                    if not str(dict1[key]) == str(dict2[key]):
-                        return True
+                if not str(dict1[key]) == str(dict2[key]):
+                    return True
             else:
                 return True
         return False
