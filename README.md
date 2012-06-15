@@ -29,6 +29,7 @@ The [main] section has 3 key elements:
 3. Debug
 
     default: false
+    
     possibilities: true | false
 
     You may enable `debug` to get a more verbose output.
