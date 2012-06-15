@@ -14,17 +14,17 @@ Setup
 Config Sprader is set up with config_spreader.conf which is a [ConfigSpreader](http://docs.python.org/library/configparser.html) file.
 
 ### The [main] section
-The [main] Section has 3 key elements:
+The [main] section has 3 key elements:
 
-1. The Server URL
+1. The server URL
 
     The `url` key defines the server URL. I.e.: https://yourspacewalkserver/rpc/api
 
-2. The Prefix
+2. The prefix
 
     default: ""
     
-    The `prefix` defines a string which is prefixed before every mirrored channel. If the prefix is "_mirrored_" and the channel which is mirrored is called "TestChannel" the resulting channel label is "_mirrored_TestChannel".
+    The `prefix` defines a string which is prefixed before every mirrored channel. If the prefix is "\_mirrored\_" and the channel which is mirrored is called "TestChannel" the resulting channel label is "_mirrored_TestChannel".
 
 3. Debug
 
@@ -35,9 +35,9 @@ The [main] Section has 3 key elements:
 
 ### The [orgs] section
 
-Here you can define organisations with a valid username/password mapping. Every mapping contains of an arbitrary organisation name followed by a `=` and `username, password`. 
+Here you can define organisations with a valid username/password mapping. Every mapping contains an arbitrary organisation name followed by a `=` and `username, password`. 
 The organisation name is arbitrary because the username/password defines the organisation in spacewalk. It is only needed for the channels. But more on that matter in the next section.
-Username and Password may not contain white spaces or commata.
+Username and password may not contain white spaces or commata.
 
 Example:
 `1 = hanspeter, Golugi70`
