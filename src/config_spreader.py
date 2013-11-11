@@ -93,7 +93,7 @@ def pushToChannel(srcChannel, dstChannel, srcChannelKey, dstChannelKey):
             pathInfo["contents"] = base64.b64encode(path["contents"])
             pathInfo["macro-start-delimiter"] = path["macro-start-delimiter"]
             pathInfo["macro-end-delimiter"] = path["macro-end-delimiter"]
-            pathInfo["contents_enc64"] = "true"
+            pathInfo["contents_enc64"] = True
             if differ(pathInfo, existingPathInfo):
                 logging.debug("they differ. uploading new content")
                 client.configchannel.createOrUpdatePath(dstChannelKey, dstChannel, path["path"], False, pathInfo)
